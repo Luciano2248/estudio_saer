@@ -223,7 +223,7 @@
 
     /* urgency badge — oculto por defecto, solo visible en desktop */
     .urgency-badge {
-      display: none;
+      display: none !important;
       position: absolute;
       bottom: 6.5rem;
       right: 0;
@@ -690,7 +690,15 @@
       justify-content: center;
       text-decoration: none;
       box-shadow: 0 4px 20px oklch(40% 0.20 145 / 0.35);
-      transition: transform 0.2s, background 0.2s;
+      /* Empieza invisible; JS lo muestra al scrollear fuera del hero */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-out, transform 0.2s, background 0.2s;
+    }
+
+    .wa-float.show {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     .wa-float:hover {
@@ -744,7 +752,7 @@
 
     /* Badge solo visible en pantallas grandes */
     @media (min-width: 901px) {
-      .urgency-badge { display: flex; }
+      .urgency-badge { display: flex !important; }
     }
 
     /* ── RESPONSIVE ─────────────────────────────────── */
@@ -1192,20 +1200,19 @@
   );
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 
-  // Ocultar botón flotante de WA mientras el hero está visible
+  // Botón flotante de WA: visible solo cuando el hero ya NO está en pantalla
   const waBtn = document.querySelector('.wa-float');
-  const hero  = document.querySelector('.hero');
-  if (waBtn && hero) {
-    waBtn.style.transition = 'opacity 0.3s, transform 0.3s';
-    const heroObs = new IntersectionObserver(
-      ([entry]) => {
-        waBtn.style.opacity       = entry.isIntersecting ? '0' : '1';
-        waBtn.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
-      },
-      { threshold: 0.2 }
-    );
-    heroObs.observe(hero);
+  const heroEl = document.querySelector('.hero');
+
+  function syncWaBtn() {
+    if (!waBtn || !heroEl) return;
+    // getBoundingClientRect().bottom < 0 significa que el hero ya salió completamente
+    const heroPastTop = heroEl.getBoundingClientRect().bottom <= 0;
+    waBtn.classList.toggle('show', heroPastTop);
   }
+
+  document.addEventListener('scroll', syncWaBtn, { passive: true });
+  syncWaBtn(); // evaluar posición inicial al cargar
 </script>
 
 </body>
