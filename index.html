@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estudio Saer Abogadas — Buenos Aires</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory:      oklch(97% 0.012 82);
+      --warm-50:    oklch(93% 0.018 78);
+      --warm-100:   oklch(87% 0.024 74);
+      --espresso:   oklch(17% 0.028 46);
+      --espresso2:  oklch(22% 0.028 48);
+      --brown:      oklch(40% 0.035 50);
+      --text:       oklch(20% 0.022 48);
+      --muted:      oklch(50% 0.018 60);
+      --terra:      oklch(54% 0.14  40);
+      --terra-lt:   oklch(64% 0.12  44);
+      --gold:       oklch(72% 0.095 85);
+      --gold-lt:    oklch(83% 0.060 88);
+      --border:     oklch(82% 0.016 76);
+      --border-dark:oklch(28% 0.024 50);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--ivory);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: color-mix(in oklch, var(--espresso) 94%, transparent);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-location {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: oklch(62% 0.018 70);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-location svg { flex-shrink: 0; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: oklch(65% 0.016 72);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ───────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--espresso);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0 3rem;
+      gap: 3rem;
+    }
+
+    .hero-texture {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 70% at 20% 60%, oklch(24% 0.040 55 / 0.5), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 20%, oklch(30% 0.030 80 / 0.2), transparent),
+        radial-gradient(ellipse 30% 50% at 60% 90%, oklch(20% 0.025 45 / 0.4), transparent);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra-lt);
+      margin-bottom: 2rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 2.5rem;
+      height: 1px;
+      background: var(--terra-lt);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 6vw, 5.2rem);
+      font-weight: 400;
+      line-height: 1.06;
+      color: var(--gold-lt);
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    h1 em {
+      display: block;
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 300;
+    }
+
+    .hero-desc {
+      font-size: 0.98rem;
+      color: oklch(68% 0.016 70);
+      max-width: 46ch;
+      line-height: 1.75;
+      margin-bottom: 2.75rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.9rem 1.75rem;
+      background: var(--terra);
+      color: var(--ivory);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--terra-lt);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.9rem 1.75rem;
+      background: transparent;
+      color: var(--gold-lt);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--border-dark);
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    /* urgency badge — positioned ABOVE the fixed WA button */
+    .urgency-badge {
+      position: absolute;
+      bottom: 6.5rem;
+      right: 0;
+      background: oklch(22% 0.030 50);
+      border: 1px solid var(--border-dark);
+      border-right: none;
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .pulse-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: oklch(72% 0.18 145);
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: oklch(72% 0.18 145);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
+
+    .urgency-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gold-lt);
+    }
+
+    /* ── HERO ILLUSTRATION ──────────────────────────── */
+    .hero-illustration {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 5rem;
+      padding-bottom: 2rem;
+    }
+
+    .hero-illustration svg {
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+      filter: drop-shadow(0 0 60px oklch(60% 0.08 75 / 0.12));
+    }
+
+    /* ── SECTION SHARED ─────────────────────────────── */
+    section { padding: 6.5rem 3rem; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.875rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    h2 em { font-style: italic; color: var(--terra); }
+
+    /* ── INTRO BAND ─────────────────────────────────── */
+    .intro-band {
+      background: var(--espresso2);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .intro-band-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .intro-band-item svg { color: var(--gold); flex-shrink: 0; }
+
+    .intro-band-item span {
+      font-size: 0.82rem;
+      color: oklch(70% 0.016 72);
+      letter-spacing: 0.02em;
+    }
+
+    .intro-band-item strong {
+      color: var(--gold-lt);
+      font-weight: 500;
+    }
+
+    /* ── SERVICIOS ──────────────────────────────────── */
+    #servicios {
+      background: var(--ivory);
+    }
+
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .services-header p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 50ch;
+    }
+
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .service-item {
+      background: var(--ivory);
+      padding: 2.75rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background 0.22s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--terra);
+      transition: width 0.3s ease-out;
+    }
+
+    .service-item:hover { background: var(--warm-50); }
+    .service-item:hover::after { width: 100%; }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--warm-100);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-icon svg { color: var(--terra); }
+
+    .service-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--espresso);
+      line-height: 1.2;
+    }
+
+    .service-item p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── URGENCIAS ──────────────────────────────────── */
+    #urgencias {
+      background: var(--espresso);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .urgencias-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 80% at 85% 50%, oklch(30% 0.050 60 / 0.25), transparent),
+        radial-gradient(ellipse 40% 60% at 5% 30%, oklch(24% 0.035 45 / 0.3), transparent);
+      pointer-events: none;
+    }
+
+    .urgencias-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 6rem;
+      align-items: center;
+      position: relative;
+    }
+
+    .urgencias-text .section-label { color: var(--terra-lt); }
+
+    .urgencias-text h2 {
+      color: var(--gold-lt);
+      font-weight: 300;
+    }
+
+    .urgencias-text h2 em { color: var(--gold); }
+
+    .urgencias-text p {
+      font-size: 0.975rem;
+      color: oklch(65% 0.016 70);
+      line-height: 1.8;
+      max-width: 52ch;
+      margin-bottom: 1.25rem;
+    }
+
+    .urgencias-num-block {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid var(--border-dark);
+      border-radius: 3px;
+      position: relative;
+      background: oklch(20% 0.025 48);
+    }
+
+    .urgencias-num-block .deco-ring {
+      position: absolute;
+      inset: -1.5rem;
+      border: 1px solid oklch(38% 0.025 55 / 0.3);
+      border-radius: 5px;
+      pointer-events: none;
+    }
+
+    .urgencias-num-block .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--gold);
+      letter-spacing: -0.03em;
+    }
+
+    .urgencias-num-block .num-unit {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--gold-lt);
+      letter-spacing: 0.06em;
+      margin-top: -0.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .urgencias-num-block .num-note {
+      font-size: 0.78rem;
+      color: oklch(55% 0.018 68);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── UBICACION ──────────────────────────────────── */
+    #ubicacion {
+      background: var(--warm-50);
+      padding: 5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .ubicacion-text .section-label { color: var(--terra); }
+
+    .ubicacion-text h2 { font-size: 2rem; }
+
+    .ubicacion-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-top: 0.75rem;
+      max-width: 44ch;
+    }
+
+    .ubicacion-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ubicacion-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .ubicacion-detail svg { color: var(--terra); flex-shrink: 0; }
+
+    .obelisco-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .obelisco-wrap svg {
+      height: 180px;
+      width: auto;
+      opacity: 0.7;
+    }
+
+    /* ── CONTACTO ───────────────────────────────────── */
+    #contacto {
+      background: var(--ivory);
+    }
+
+    .contact-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+      margin-bottom: 3.5rem;
+    }
+
+    .contact-header p {
+      font-size: 0.975rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 50ch;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem;
+      background: var(--warm-50);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s, background 0.2s;
+      color: inherit;
+    }
+
+    .contact-card:hover {
+      border-color: var(--terra);
+      background: var(--warm-100);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--warm-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-icon svg { color: var(--terra); }
+
+    .contact-card-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terra);
+    }
+
+    .contact-card-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--espresso);
+      line-height: 1.3;
+    }
+
+    .contact-card-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .videocall-row {
+      padding: 2rem 2.5rem;
+      background: var(--warm-50);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .videocall-row h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--espresso);
+      min-width: 200px;
+    }
+
+    .videocall-row p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .platform-pills {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .pill {
+      padding: 0.4rem 1rem;
+      background: var(--ivory);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+
+    /* ── FLOATING WA BUTTON ─────────────────────────── */
+    .wa-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 300;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: oklch(58% 0.22 145);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px oklch(40% 0.20 145 / 0.35);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .wa-float:hover {
+      background: oklch(63% 0.22 145);
+      transform: scale(1.08);
+    }
+
+    .wa-float svg { color: white; }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: var(--espresso);
+      padding: 2.25rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+    }
+
+    footer small {
+      font-size: 0.75rem;
+      color: oklch(42% 0.014 65);
+    }
+
+    /* ── ANIMATIONS ─────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-location, .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 0 1.5rem; }
+      .hero-illustration { display: none; }
+      .hero-content { padding-top: 7rem; }
+      section { padding: 4.5rem 1.5rem; }
+      .services-header, .services-list { grid-template-columns: 1fr; }
+      .urgencias-inner, .contact-header { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      #ubicacion { grid-template-columns: 1fr; }
+      .obelisco-wrap { display: none; }
+      .ubicacion-details { display: none; }
+      footer { padding: 2rem 1.5rem; }
+      .urgency-badge { right: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/541134121111" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Saer Abogadas</a>
+  <div class="nav-right">
+    <span class="nav-location">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+      Buenos Aires, Argentina
+    </span>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#urgencias">Urgencias</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-texture"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Estudio Jurídico — Buenos Aires</p>
+    <h1>Saer<br><em>Abogadas</em></h1>
+    <p class="hero-desc">
+      Defensa legal comprometida. Asesoramiento, representación
+      y documentos jurídicos, con asistencia en urgencias penales
+      las 24 horas, todos los días.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/541134121111" target="_blank" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="mailto:saerabogadas@gmail.com" class="btn-outline">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Escribinos
+      </a>
+    </div>
+  </div>
+
+  <!-- Scales illustration -->
+  <div class="hero-illustration">
+    <svg viewBox="0 0 460 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Outer decorative rings -->
+      <circle cx="230" cy="260" r="200" stroke="oklch(65% 0.08 80 / 0.07)" stroke-width="1"/>
+      <circle cx="230" cy="260" r="170" stroke="oklch(65% 0.08 80 / 0.05)" stroke-width="1"/>
+      <!-- Outer circle accent -->
+      <circle cx="230" cy="260" r="200" stroke="oklch(72% 0.095 85 / 0.15)" stroke-width="0.5" stroke-dasharray="4 12"/>
+
+      <!-- Main vertical pole -->
+      <rect x="226.5" y="60" width="7" height="340" rx="3.5" fill="oklch(72% 0.095 85 / 0.5)"/>
+      <!-- Pole highlight -->
+      <rect x="228" y="60" width="2" height="340" rx="1" fill="oklch(85% 0.06 88 / 0.3)"/>
+
+      <!-- Crossbeam -->
+      <rect x="88" y="148" width="284" height="5" rx="2.5" fill="oklch(72% 0.095 85 / 0.55)"/>
+      <!-- Crossbeam center jewel -->
+      <circle cx="230" cy="150.5" r="7" fill="oklch(22% 0.025 48)" stroke="oklch(72% 0.095 85 / 0.6)" stroke-width="1.5"/>
+      <circle cx="230" cy="150.5" r="3" fill="oklch(72% 0.095 85 / 0.7)"/>
+
+      <!-- Left chain links -->
+      <line x1="108" y1="153" x2="78" y2="295" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="103" cy="172" r="3" fill="oklch(72% 0.095 85 / 0.25)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1"/>
+      <circle cx="97" cy="196" r="3" fill="oklch(72% 0.095 85 / 0.25)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1"/>
+      <circle cx="91" cy="220" r="3" fill="oklch(72% 0.095 85 / 0.25)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1"/>
+      <circle cx="85" cy="244" r="3" fill="oklch(72% 0.095 85 / 0.25)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1"/>
+      <circle cx="80" cy="268" r="3" fill="oklch(72% 0.095 85 / 0.25)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1"/>
+
+      <!-- Right chain links (slightly lower — tilted scales) -->
+      <line x1="352" y1="153" x2="385" y2="308" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="357" cy="172" r="3" fill="oklch(72% 0.095 85 / 0.25)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1"/>
+      <circle cx="363" cy="196" r="3" fill="oklch(72% 0.095 85 / 0.25)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1"/>
+      <circle cx="369" cy="220" r="3" fill="oklch(72% 0.095 85 / 0.25)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1"/>
+      <circle cx="375" cy="244" r="3" fill="oklch(72% 0.095 85 / 0.25)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1"/>
+      <circle cx="380" cy="268" r="3" fill="oklch(72% 0.095 85 / 0.25)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1"/>
+
+      <!-- Left pan (higher) -->
+      <ellipse cx="78" cy="300" rx="52" ry="10" fill="oklch(22% 0.025 48 / 0.6)" stroke="oklch(72% 0.095 85 / 0.5)" stroke-width="1.5"/>
+      <ellipse cx="78" cy="298" rx="52" ry="10" fill="oklch(72% 0.095 85 / 0.06)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1.5"/>
+      <!-- Pan shadow underneath -->
+      <ellipse cx="78" cy="302" rx="44" ry="6" fill="oklch(55% 0.06 70 / 0.08)"/>
+
+      <!-- Right pan (lower — slightly heavier) -->
+      <ellipse cx="385" cy="316" rx="52" ry="10" fill="oklch(22% 0.025 48 / 0.6)" stroke="oklch(72% 0.095 85 / 0.5)" stroke-width="1.5"/>
+      <ellipse cx="385" cy="314" rx="52" ry="10" fill="oklch(72% 0.095 85 / 0.06)" stroke="oklch(72% 0.095 85 / 0.4)" stroke-width="1.5"/>
+      <ellipse cx="385" cy="318" rx="44" ry="6" fill="oklch(55% 0.06 70 / 0.08)"/>
+
+      <!-- Small elements on right pan (weight) -->
+      <rect x="370" y="298" width="30" height="16" rx="3" fill="oklch(72% 0.095 85 / 0.12)" stroke="oklch(72% 0.095 85 / 0.3)" stroke-width="1"/>
+
+      <!-- Crossbeam tilt indicator pivot -->
+      <line x1="88" y1="145" x2="372" y2="156" stroke="oklch(72% 0.095 85 / 0.15)" stroke-width="1"/>
+
+      <!-- Base column -->
+      <rect x="218" y="398" width="24" height="60" rx="2" fill="oklch(72% 0.095 85 / 0.35)"/>
+      <!-- Base platform -->
+      <rect x="168" y="456" width="124" height="10" rx="2" fill="oklch(72% 0.095 85 / 0.4)"/>
+      <rect x="148" y="464" width="164" height="8" rx="2" fill="oklch(72% 0.095 85 / 0.3)"/>
+      <rect x="130" y="470" width="200" height="6" rx="2" fill="oklch(72% 0.095 85 / 0.2)"/>
+
+      <!-- Top pinnacle -->
+      <polygon points="226,56 234,56 230,40" fill="oklch(72% 0.095 85 / 0.6)"/>
+      <polygon points="227,44 233,44 230,36" fill="oklch(85% 0.06 88 / 0.5)"/>
+
+      <!-- Decorative dots at crossbeam ends -->
+      <circle cx="88" cy="150.5" r="5" fill="oklch(72% 0.095 85 / 0.4)" stroke="oklch(72% 0.095 85 / 0.2)" stroke-width="1"/>
+      <circle cx="372" cy="153.5" r="5" fill="oklch(72% 0.095 85 / 0.4)" stroke="oklch(72% 0.095 85 / 0.2)" stroke-width="1"/>
+
+      <!-- Olive branches suggestion (abstract lines) -->
+      <path d="M40 350 Q55 330 70 340 Q60 355 40 360Z" fill="oklch(58% 0.10 140 / 0.2)"/>
+      <path d="M30 370 Q50 345 65 358 Q52 375 30 378Z" fill="oklch(58% 0.10 140 / 0.15)"/>
+      <path d="M420 365 Q405 345 390 355 Q400 370 420 374Z" fill="oklch(58% 0.10 140 / 0.2)"/>
+      <path d="M430 385 Q410 360 395 372 Q408 389 430 392Z" fill="oklch(58% 0.10 140 / 0.15)"/>
+    </svg>
+  </div>
+
+  <!-- Urgency badge — above floating WA button -->
+  <div class="urgency-badge">
+    <span class="pulse-row"><span class="pulse-dot"></span>Disponibles ahora</span>
+    <span class="urgency-label">Urgencias penales 24 hs</span>
+  </div>
+</section>
+
+<!-- BAND -->
+<div class="intro-band">
+  <div class="intro-band-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </svg>
+    <span><strong>Urgencias 24 hs</strong> — Sin importar el horario</span>
+  </div>
+  <div class="intro-band-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+    </svg>
+    <span><strong>Buenos Aires</strong> — Atención presencial y online</span>
+  </div>
+  <div class="intro-band-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+    </svg>
+    <span><strong>Online</strong> — Zoom, Teams y videollamada</span>
+  </div>
+  <div class="intro-band-item">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>
+    </svg>
+    <span><strong>Documentos</strong> — Redacción jurídica profesional</span>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="services-header">
+    <div>
+      <p class="section-label fade-up">Áreas de práctica</p>
+      <h2 class="fade-up">Servicios legales<br><em>integrales</em></h2>
+    </div>
+    <p class="fade-up">Brindamos soluciones jurídicas completas adaptadas a cada situación, con el compromiso y la dedicación que cada caso merece.</p>
+  </div>
+
+  <div class="services-list">
+    <div class="service-item fade-up">
+      <div class="service-icon">
+        <!-- Shield icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <h3>Urgencias Penales</h3>
+      <p>Asistencia inmediata ante detenciones, allanamientos e imputaciones. Contacto disponible las 24 horas, los 365 días del año sin excepción.</p>
+    </div>
+
+    <div class="service-item fade-up" style="transition-delay:.08s">
+      <div class="service-icon">
+        <!-- Chat/advice icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+      </div>
+      <h3>Asesoramiento Legal</h3>
+      <p>Orientación clara y precisa sobre tus derechos y las opciones disponibles en tu caso, para que puedas tomar decisiones con total seguridad.</p>
+    </div>
+
+    <div class="service-item fade-up" style="transition-delay:.16s">
+      <div class="service-icon">
+        <!-- Balance/scales icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="3" x2="12" y2="21"/><path d="M3 9l4-6 4 6"/><path d="M13 15l4-6 4 6"/><line x1="3" y1="9" x2="7" y2="9"/><line x1="17" y1="15" x2="21" y2="15"/>
+        </svg>
+      </div>
+      <h3>Representación Legal</h3>
+      <p>Defensa activa de tus intereses ante juzgados, organismos y cualquier instancia del sistema judicial de la República Argentina.</p>
+    </div>
+
+    <div class="service-item fade-up" style="transition-delay:.24s">
+      <div class="service-icon">
+        <!-- Document icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
+      <h3>Redacción de Documentos</h3>
+      <p>Contratos, escritos judiciales, poderes y todo tipo de documentación legal, redactada con precisión terminológica y rigor jurídico.</p>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCIAS -->
+<section id="urgencias">
+  <div class="urgencias-bg"></div>
+  <div class="urgencias-inner">
+    <div class="urgencias-text">
+      <p class="section-label fade-up">Atención inmediata</p>
+      <h2 class="fade-up">Cuando más<br>lo <em>necesitás</em></h2>
+      <p class="fade-up">Las emergencias penales no tienen horario. Si vos o un familiar enfrentan una detención, imputación o situación penal urgente, nuestro equipo está disponible en cualquier momento.</p>
+      <p class="fade-up">Contactanos por WhatsApp y respondemos de inmediato para coordinar la asistencia legal necesaria.</p>
+      <a href="https://wa.me/541134121111" target="_blank" class="btn-primary fade-up" style="margin-top:.75rem;transition-delay:.1s">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Urgencias ahora
+      </a>
+    </div>
+
+    <div class="urgencias-num-block fade-up">
+      <div class="deco-ring"></div>
+      <div class="num">24</div>
+      <div class="num-unit">Horas</div>
+      <p class="num-note">365 días del año<br>Sin excepciones</p>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACION -->
+<section id="ubicacion">
+  <div class="ubicacion-text fade-up">
+    <p class="section-label">Dónde estamos</p>
+    <h2>Buenos Aires,<br><em>Argentina</em></h2>
+    <p>Atención presencial en la Ciudad de Buenos Aires y consultas online para todo el país.</p>
+  </div>
+
+  <div class="obelisco-wrap fade-up">
+    <!-- Obelisco de Buenos Aires — SVG silhouette -->
+    <svg viewBox="0 0 140 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Obelisco de Buenos Aires">
+      <!-- Ground / base platform -->
+      <rect x="0" y="308" width="140" height="6" rx="2" fill="var(--terra)" opacity="0.3"/>
+      <!-- Base level 3 -->
+      <rect x="22" y="295" width="96" height="14" rx="2" fill="var(--terra)" opacity="0.35"/>
+      <!-- Base level 2 -->
+      <rect x="35" y="282" width="70" height="14" rx="2" fill="var(--terra)" opacity="0.45"/>
+      <!-- Base level 1 (tall) -->
+      <rect x="46" y="240" width="48" height="43" rx="1" fill="var(--terra)" opacity="0.55"/>
+      <!-- Decorative arch details on base -->
+      <rect x="52" y="248" width="16" height="26" rx="1" fill="var(--terra)" opacity="0.2"/>
+      <rect x="72" y="248" width="16" height="26" rx="1" fill="var(--terra)" opacity="0.2"/>
+      <!-- Main shaft — tapers from 36px at bottom to 18px at top -->
+      <polygon points="52,240 88,240 78,55 62,55" fill="var(--terra)" opacity="0.65"/>
+      <!-- Shaft highlight (lighter stripe) -->
+      <polygon points="68,238 74,238 70,56 66,56" fill="var(--gold-lt)" opacity="0.15"/>
+      <!-- Pyramid cap -->
+      <polygon points="62,55 78,55 70,22" fill="var(--terra)" opacity="0.75"/>
+      <!-- Pyramid highlight -->
+      <polygon points="68,54 74,54 70,28" fill="var(--gold-lt)" opacity="0.25"/>
+      <!-- Tip star/point -->
+      <polygon points="68,22 72,22 70,14" fill="var(--gold)" opacity="0.7"/>
+      <!-- Decorative horizontal bands on shaft -->
+      <rect x="60" y="200" width="20" height="2" rx="1" fill="var(--gold)" opacity="0.25"/>
+      <rect x="61" y="160" width="18" height="2" rx="1" fill="var(--gold)" opacity="0.2"/>
+      <rect x="62" y="120" width="16" height="1.5" rx="0.75" fill="var(--gold)" opacity="0.18"/>
+      <rect x="63" y="90" width="14" height="1.5" rx="0.75" fill="var(--gold)" opacity="0.15"/>
+      <!-- Ground shadow -->
+      <ellipse cx="70" cy="312" rx="55" ry="4" fill="var(--terra)" opacity="0.08"/>
+    </svg>
+  </div>
+
+  <div class="ubicacion-details fade-up">
+    <div class="ubicacion-detail">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+      Ciudad de Buenos Aires
+    </div>
+    <div class="ubicacion-detail">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      Consultas online en todo el país
+    </div>
+    <div class="ubicacion-detail">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+      Urgencias penales 24 hs
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contact-header">
+    <div>
+      <p class="section-label fade-up">Hablemos</p>
+      <h2 class="fade-up">Contacto <em>directo</em></h2>
+    </div>
+    <p class="fade-up">Escribinos por el canal que prefieras. Respondemos consultas con rapidez y discreción, de forma presencial u online desde cualquier lugar del país.</p>
+  </div>
+
+  <div class="contact-grid">
+    <a href="https://wa.me/541134121111" target="_blank" class="contact-card fade-up">
+      <div class="contact-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </div>
+      <span class="contact-card-label">WhatsApp</span>
+      <span class="contact-card-value">11 3412-1111</span>
+      <span class="contact-card-desc">Urgencias penales y consultas generales. Respondemos a la brevedad.</span>
+    </a>
+
+    <a href="mailto:saerabogadas@gmail.com" class="contact-card fade-up" style="transition-delay:.08s">
+      <div class="contact-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </div>
+      <span class="contact-card-label">Email</span>
+      <span class="contact-card-value">saerabogadas@gmail.com</span>
+      <span class="contact-card-desc">Consultas escritas, envío de documentación y seguimiento de casos.</span>
+    </a>
+
+    <div class="contact-card fade-up" style="transition-delay:.16s; cursor:default">
+      <div class="contact-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+        </svg>
+      </div>
+      <span class="contact-card-label">Videollamada</span>
+      <span class="contact-card-value">Consulta online</span>
+      <span class="contact-card-desc">Coordinamos por Zoom, Teams o videollamada según tu disponibilidad.</span>
+    </div>
+  </div>
+
+  <div class="videocall-row fade-up">
+    <h3>Plataformas disponibles</h3>
+    <p>Elegí la que más te resulte cómoda. Coordinamos día y horario por WhatsApp.</p>
+    <div class="platform-pills">
+      <span class="pill">Videollamada</span>
+      <span class="pill">Zoom</span>
+      <span class="pill">Microsoft Teams</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Estudio Saer Abogadas</span>
+  <div class="footer-right">
+    <small>Buenos Aires, Argentina</small>
+    <small>Atención online en toda la República Argentina</small>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
