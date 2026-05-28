@@ -27,13 +27,14 @@
       --border-dark:oklch(28% 0.024 50);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
       font-family: 'Inter', sans-serif;
       background: var(--ivory);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* ── NAV ────────────────────────────────────────── */
@@ -748,28 +749,66 @@
 
     /* ── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 900px) {
+      /* Nav */
       nav { padding: 1rem 1.5rem; }
       .nav-location, .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 0 1.5rem; }
+
+      /* Hero */
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
+      }
       .hero-illustration { display: none; }
-      .hero-content { padding-top: 7rem; padding-bottom: 5rem; }
-      section { padding: 4.5rem 1.5rem; }
-      .services-header, .services-list { grid-template-columns: 1fr; }
-      .urgencias-inner, .contact-header { grid-template-columns: 1fr; gap: 2.5rem; }
-      .contact-grid { grid-template-columns: 1fr; }
-      #ubicacion { grid-template-columns: 1fr; }
-      .obelisco-wrap { display: none; }
+      .hero-content { padding-top: 7rem; padding-bottom: 3rem; }
+      /* CTAs en columna para que no queden en la esquina donde está el botón flotante */
+      .hero-ctas {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+
+      /* Sections — override TODOS los paddings incluyendo los específicos */
+      section,
+      #servicios,
+      #urgencias,
+      #contacto { padding: 4rem 1.5rem; }
+      #ubicacion { padding: 4rem 1.5rem; grid-template-columns: 1fr; }
+
+      /* Intro band (div, no section — necesita override propio) */
+      .intro-band {
+        padding: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+
+      /* Servicios */
+      .services-header { grid-template-columns: 1fr; gap: 1rem; }
+      .services-list   { grid-template-columns: 1fr; }
+
+      /* Urgencias */
+      .urgencias-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      /* Ubicacion */
+      .obelisco-wrap   { display: none; }
       .ubicacion-details { display: none; }
-      footer { padding: 2rem 1.5rem; }
-      /* Videocall row en columna para que las pills no desborden */
+
+      /* Contacto */
+      .contact-header  { grid-template-columns: 1fr; gap: 1.5rem; }
+      .contact-grid    { grid-template-columns: 1fr; }
+
+      /* Videocall row — columna, pills sin overflow */
       .videocall-row {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
         padding: 1.5rem;
       }
-      .videocall-row h3 { min-width: unset; }
-      .videocall-row p   { min-width: unset; }
+      .videocall-row h3,
+      .videocall-row p  { min-width: 0; }
+
+      /* Footer */
+      footer { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -1146,11 +1185,27 @@
 </footer>
 
 <script>
+  // Animaciones de entrada
   const io = new IntersectionObserver(
     entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
     { threshold: 0.1 }
   );
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+  // Ocultar botón flotante de WA mientras el hero está visible
+  const waBtn = document.querySelector('.wa-float');
+  const hero  = document.querySelector('.hero');
+  if (waBtn && hero) {
+    waBtn.style.transition = 'opacity 0.3s, transform 0.3s';
+    const heroObs = new IntersectionObserver(
+      ([entry]) => {
+        waBtn.style.opacity       = entry.isIntersecting ? '0' : '1';
+        waBtn.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
+      },
+      { threshold: 0.2 }
+    );
+    heroObs.observe(hero);
+  }
 </script>
 
 </body>
