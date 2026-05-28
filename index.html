@@ -746,6 +746,8 @@
       .hero { grid-template-columns: 1fr; padding: 0 1.5rem; }
       .hero-illustration { display: none; }
       .hero-content { padding-top: 7rem; }
+      /* Badge oculto en mobile: se superpone con los botones del hero */
+      .urgency-badge { display: none; }
       section { padding: 4.5rem 1.5rem; }
       .services-header, .services-list { grid-template-columns: 1fr; }
       .urgencias-inner, .contact-header { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -754,7 +756,24 @@
       .obelisco-wrap { display: none; }
       .ubicacion-details { display: none; }
       footer { padding: 2rem 1.5rem; }
-      .urgency-badge { right: 0; }
+      /* Videocall row en columna y pills sin overflow */
+      .videocall-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.5rem;
+      }
+      .videocall-row h3 { min-width: unset; }
+      .videocall-row p   { min-width: unset; }
+      .platform-pills {
+        flex-shrink: 1;
+        width: 100%;
+      }
+      .pill {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.75rem;
+        white-space: nowrap;
+      }
     }
   </style>
 </head>
